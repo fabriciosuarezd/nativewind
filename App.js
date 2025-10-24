@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {View, Text, TextInput, TouchableOpacity, Scrollview} from 'react-native'
+import './global.css'
 
 const App = () => {
 
