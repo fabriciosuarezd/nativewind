@@ -4,7 +4,7 @@ import './global.css'
 
 const App = () => {
 
-  {/* Nuestros Datos */}
+  // Nuestros Datos
   const [tareas, setTareas] = useState([
     {id: 1, texto: 'Aprender React', completada: false},
     {id: 2, texto: 'Aprender Tailwind', completada: true},
@@ -12,11 +12,11 @@ const App = () => {
 
   const [nuevaTarea, setNuevaTarea] = useState('')
 
-  {/* Funcion para agregar una nueva tarea */}
+  //Funcion para agregar una nueva tarea
   const agregarTarea = () => {
     
-    {/* Si no escribimos nada sale de la funcion */}
-    //if (nuevaTarea.trim()==='') return
+    //Si no escribimos nada sale de la funcion
+    if (nuevaTarea.trim()==='') return
 
     const tarea = {
       id: Date.now(),
@@ -28,21 +28,20 @@ const App = () => {
     setNuevaTarea('')
   }
 
-  {/* Toogle cambia el valor de completado 
-      haciendo click en el checkbox 
-  */}
+  //Toogle cambia el valor de completado haciendo click en el checkbox 
+  
   const toogleTarea = (id) => {
     setTareas(tareas.map(tarea =>
       tarea.id === id ? {...tarea, completada:!tarea.completada} : tarea
     ))
   }
 
-  {/* Eliminar una tarea */}
+  //Eliminar una tarea
   const eliminarTarea = (id) => {
     setTareas(tareas.filter(tarea => tarea.id !== id))
   }
 
-  {/* Resumen */}
+  //Resumen
   const tareasCompletadas = tareas.filter(item => item.completada).length
   const totalTareas = tareas.length
 
@@ -65,7 +64,7 @@ const App = () => {
           className='flex-1 bg-white px-4 py-3 rounded-xl border-2 border-purple-200 text-gray-800 mr-3' 
           placeholder="Escribe una nueva tarea"
           value={nuevaTarea}
-          onChange={setNuevaTarea}
+          onChangeText={setNuevaTarea}
         />
         <TouchableOpacity
           onPress={agregarTarea}
@@ -77,7 +76,7 @@ const App = () => {
 
       {/* Lista de Tareas */}
       <ScrollView className="flex-1">
-        {tareas.map((tarea)=>{
+        {tareas.map((tarea)=>(
           <View
             key={tarea.id}
             className={`bg-white p-4 rounded-xl mb-3 border-2 ${tarea.completada ? 'border-green-300 bg-green-50':'border-gray-200'}`}
@@ -117,7 +116,7 @@ const App = () => {
               </TouchableOpacity>
             </View>
           </View>
-        })}
+        ))}
 
         {tareas.length === 0 && (
           <View className="items-center justify-center py-12">
