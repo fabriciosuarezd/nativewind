@@ -109,10 +109,10 @@ const App = () => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={eliminarTarea(tarea.id)}
+                onPress={()=>eliminarTarea(tarea.id)}
                 className='bg-red-100 px-3 py-2 rounded-lg active:border-red-200'
               >
-                <Text className='text-lg'>Borrar</Text>
+                <Text className='text-lg'>❌</Text>
               </TouchableOpacity>
             </View>
           </View>
